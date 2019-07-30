@@ -1,7 +1,11 @@
 package com.codeclan.example.pirateservice;
 
 import com.codeclan.example.pirateservice.models.Pirate;
+import com.codeclan.example.pirateservice.models.Raid;
+import com.codeclan.example.pirateservice.models.Ship;
 import com.codeclan.example.pirateservice.repositories.PirateRepository;
+import com.codeclan.example.pirateservice.repositories.RaidRepository;
+import com.codeclan.example.pirateservice.repositories.ShipRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +19,35 @@ public class PirateserviceApplicationTests {
 	@Autowired
 	PirateRepository pirateRepository;
 
+	@Autowired
+	ShipRepository shipRepository;
+
+	@Autowired
+	RaidRepository raidRepository;
+
 	@Test
 	public void contextLoads() {
 	}
 
 	@Test
-	public void createPirate() {
-		Pirate jack = new Pirate("Jack", "Sparrow", 32);
-		pirateRepository.save(jack);
+	public void createPirateAndShip() {
+		Ship ship = new Ship("The Flying Dutchman");
+		shipRepository.save(ship);
 
+		Pirate pirate1 = new Pirate("Jack", "Sparrow", 32, ship);
+		pirateRepository.save(pirate1);
+
+	}
+
+	@Test
+	public void addPiratesAndRaids() {
+		Ship ship = new Ship("The Flying Dutchman");
+		shipRepository.save(ship);
+
+		Pirate pirate1 = new Pirate("Jack", "Sparrow", 32, ship);
+		pirateRepository.save(pirate1);
+
+		Raid raid1 = new Raid("Tortuga", 100);
+		raidRepository.save(raid1);
 	}
 }
