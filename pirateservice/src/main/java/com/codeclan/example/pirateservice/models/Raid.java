@@ -23,7 +23,7 @@ public class Raid {
     @JsonIgnoreProperties({"raids"})
     @ManyToMany
     @JoinTable(
-            name = "pirates-raids",
+            name = "pirates_raids",
             joinColumns = { @JoinColumn(
                     name = "raid_id",
                     nullable = false,

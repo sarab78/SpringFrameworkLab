@@ -22,7 +22,7 @@ public class PirateController {
         return pirateRepository.findAll();
     }
 
-    @GetMapping("{id")
+    @GetMapping("{id}")
     public Optional<Pirate> getPirate(@PathVariable Long id) {
        return pirateRepository.findById(id);
     }

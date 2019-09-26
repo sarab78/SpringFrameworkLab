@@ -30,7 +30,7 @@ public class Pirate {
     @JoinColumn(name="ship_id", nullable=false)
     private Ship ship;
 
-    @JsonIgnoreProperties("{pirates}")
+    @JsonIgnoreProperties({"pirates"})
     @ManyToMany
     @JoinTable(
             name = "pirates_raids",
